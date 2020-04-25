@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Forms</title>
+</head>
+<body>
+  <form action="./submission.html" method="GET">
+    <div>
+      <label for="name">Name</label>
+      <input id="name" type="text" name="name">
+    </div>
+    <!-- 
+      A second way of matching a label to an input 
+      is by omitting the "for" and "id" attributes 
+      and making label the parent of input
+     -->
+    <div>
+      <label>
+        Email
+        <input type="email" name="email">
+      </label>
+    </div>
+
+    <div>
+      <label for="despription">Description</label>
+      <textarea name="description" id="description" cols="30" rows="3"></textarea>
+    </div>
+    
+    <div>
+      <label for="age">Age</label>
+      <input id="age" type="number" name="age" min="0" max="100">
+    </div>
+    <!-- 
+      name attribute represents the form data that will be sent within this form tag
+      Each name will have a corresponding value
+      Below, both radio buttons have the attribute name="gender", but only one value
+      will be submitted
+     -->
+    <div>
+      <label for="female">Female</label>
+      <input id="female" name="gender" type="radio" value="female">
+    </div>
+    <div>
+      <label for="male">Male</label>
+      <input id="male" name="gender" type="radio" value="male">
+    </div>
+
+    <div>
+      <label for="language">Which programming language are you most proficient?</label>
+      <select name="language" id="language">
+        <option value="javascript">JavaScript</option>
+        <option value="ruby">Ruby</option>
+        <option value="python">Python</option>
+      </select>
+    </div>
+
+    <!-- 
+      The required attribute does not need a value and will
+      not allow the form to be submitted if the value is empty
+     -->
+    <div>
+      <label for="agreement">I agree to the terms and conditions</label>
+      <input id="agreement" type="checkbox" required>
+    </div>
+
+    <button type="reset">Reset</button>
+    <button type="submit">Register</button>
+  </form>
+</body>
+</html>
