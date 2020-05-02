@@ -1,0 +1,36 @@
+#alignment-parent > p.highlight {
+  background-color: lightcoral;
+}
+
+/* This does not get applied because it's not specific enough */
+.highlight {
+  background-color: yellow;
+}
+
+/* !important overrides other more specfic selectors */
+.highlight {
+  background-color: palegreen !important;
+}
+
+h2 {
+  background-color: lightgreen;
+}
+
+/* This gets applied instead of the above rule because of cascading */
+h2 {
+  background-color: lightblue;
+}
+
+#alignment-parent {
+  border: solid red 2px;
+  padding: 25px; /* all four sides */
+  margin: 15px 30px; /* top/bottom left/right
+  /* padding: 25px 12px 30px; top left/right bottom */
+  /* margin: 25px 12px 30px 50px; top right bottom left */
+}
+
+div.olive {
+  background-color: darkolivegreen;
+} 
+
+
