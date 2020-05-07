@@ -141,9 +141,28 @@
         background-color: darkgray;
         z-index: 1;
       }
+      /* css animation */
+      @keyframes switchcolor {
+        from {
+          background-color: white;
+        }
+        to {
+          background-color: black;
+        }
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: white;
+        animation-name: switchcolor;
+        animation-duration: 10s;
+      }
     </style>
   </head>
   <body>
+    <h1>Animation</h1>
+    <div class="box"></div>
+
     <h1>Relative Positioning</h1>
     <div class="first-box shared">Box 1</div>
     <div class="second-box shared">Box 2</div>
