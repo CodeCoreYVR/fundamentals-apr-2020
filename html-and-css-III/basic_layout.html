@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Layout</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .page {
+        background-color: lightgrey;
+        width: 80%;
+        margin-left: 10%;
+        font-size: 2em;
+        font-family: "Times New Roman", Times, serif;
+        font-weight: bold;
+      }
+      .nav {
+        background-color: lightslategray;
+        padding: 0.2em;
+        height: 10vh;
+      }
+
+      .left {
+        box-sizing: border-box;
+        float: left;
+        width: 20%;
+        height: 65vh;
+        background-color: oldlace;
+        padding: 0.2em;
+      }
+
+      .right {
+        float: right;
+        width: 20%;
+        height: 65vh;
+        background-color: palegoldenrod;
+      }
+
+      .slider {
+        width: 100%;
+        background-color: palevioletred;
+        height: 40vh;
+      }
+
+      .content {
+        background-color: plum;
+        height: 40vh;
+      }
+
+      .ads {
+        position: fixed;
+        top: 48%;
+        right: 10%;
+        width: 100px;
+        background-color: salmon;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header nav">Header</header>
+      <section class="left">Left</section>
+      <section class="right">Right</section>
+      <section class="slider">Slider</section>
+      <section class="content">Content</section>
+      <section class="ads">Ads</section>
+      <footer class="footer nav">Footer</footer>
+    </div>
+  </body>
+</html>
