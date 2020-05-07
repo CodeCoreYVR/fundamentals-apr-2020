@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Positioning</title>
+    <style>
+      .shared {
+        font-size: 2em;
+        /* color: white; */
+      }
+
+      /* Relative Positioning */
+      .first-box {
+        background-color: maroon;
+      }
+      .second-box {
+        background-color: coral;
+        position: relative; /* top, left, right, bottom will be activated */
+        /* top: 3.5em; */
+      }
+      .third-box {
+        background-color: darkslateblue;
+      }
+
+      /* Move the word 'word' to the next line */
+      .word {
+        position: relative;
+        top: 35px;
+        right: 77px;
+      }
+
+      /* Absolute positioning */
+      .parent {
+        /*
+            if we don't position this element, the top, right, bottom, left
+            properties for the absolute positioned elements inside it will
+            will be computed according to the next nearest ancestor which
+            has a relative position otherwise the body of the document
+          */
+        position: relative;
+      }
+      .absolute-positioned {
+        background-color: goldenrod;
+        position: absolute;
+        top: 20px;
+        right: 0;
+      }
+
+      /* Fixed Positioning */
+      .fixed-element {
+        background-color: orange;
+        width: 4em;
+        font-size: 2em;
+        cursor: pointer;
+        position: fixed;
+        top: 50%;
+        right: 0;
+      }
+      .fixed-element:hover {
+        background-color: black;
+        color: white;
+      }
+
+      /* Sticky Positioning */
+      .sticky-menu {
+        background-color: teal;
+        padding: 5px;
+        position: sticky;
+        top: 10px;
+        width: 100%;
+        z-index: 2;
+      }
+
+      /* Floating Elements */
+      .float-left {
+        background-color: maroon;
+        float: left;
+      }
+      .float-right {
+        background-color: green;
+        float: right;
+        height: 200px;
+        border: 5px solid black;
+      }
+
+      .clear-floating {
+        border: 5px solid brown;
+        clear: none; /* default */
+        clear: left; /* clearing according to the floated left element */
+        clear: right; /* clearing accoring to the floated right element */
+        clear: both; /* clearing according to both floated elements */
+        clear: inline-start; /* clearing according to the floated left element */
+        clear: inline-end; /* clearing accoring to the floated right element */
+        /* margin-top: 100px; */
+        /* The above margin will be counted from the top of floated elements */
+        /* therefore, it's effect will only appear if its more than the height of the floated elements */
+      }
+
+      /* z-index */
+      .indexed-box1 {
+        position: relative;
+        width: 10em;
+        height: 10em;
+        top: 1em;
+        left: 8em;
+        background-color: cadetblue;
+        z-index: 3;
+      }
+
+      .shared-inner-box-class {
+        position: relative;
+        width: 4em;
+        height: 4em;
+      }
+
+      .inner-box1 {
+        margin: 1em;
+        background-color: tomato;
+        z-index: 3;
+      }
+      .inner-box2 {
+        top: -2em;
+        left: 3em;
+        background-color: darkcyan;
+        z-index: 2;
+      }
+      .inner-box3 {
+        top: -4em;
+        left: 5em;
+        background-color: turquoise;
+        z-index: 1;
+      }
+
+      .indexed-box2 {
+        position: relative;
+        width: 8em;
+        height: 8em;
+        top: -1em;
+        left: 15em;
+        background-color: darkgray;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Relative Positioning</h1>
+    <div class="first-box shared">Box 1</div>
+    <div class="second-box shared">Box 2</div>
+    <div class="third-box shared">Box 3</div>
+
+    <!-- Exercise -->
+    <div class="text-box">
+      <p>I am a paragraph with an extra word<span class="word">word</span></p>
+      <p>I am a paragraph with a</p>
+    </div>
+
+    <h1>Absolute Positioning</h1>
+    <div class="parent">
+      <div class="absolute-positioned shared">
+        I am positioned 'absolute'
+      </div>
+    </div>
+
+    <h1>Fixed Positioning</h1>
+    <button class="fixed-element">Ads</button>
+
+    <div class="sticky-menu shared">
+      Sticky Menu
+    </div>
+
+    <h1>Floating Elements</h1>
+    <div class="parent-float">
+      <div class="float-left shared">Float left</div>
+      <div class="float-right shared">Float right</div>
+    </div>
+    <div class="clear-floating">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
+        perspiciatis sapiente dolorum quidem soluta porro excepturi temporibus
+        voluptatum corporis dolor aut eum doloribus ad ipsa, minima praesentium,
+        dolore libero. Blanditiis? Lorem ipsum dolor sit amet consectetur,
+        adipisicing elit. Asperiores, deleniti assumenda cumque vero harum
+        veritatis earum esse eum expedita iste incidunt officiis, debitis sint
+        nesciunt quod enim consequuntur cum aspernatur. Lorem ipsum, dolor sit
+        amet consectetur adipisicing elit. Perferendis nam corporis deleniti
+        error sunt nihil quam velit commodi aspernatur sapiente expedita ex
+        veniam aliquid fugiat necessitatibus quod, mollitia saepe fuga!
+      </p>
+    </div>
+
+    <h1>z-index</h1>
+    <div class="indexed-box1">
+      <div class="inner-box1 shared-inner-box-class"></div>
+      <div class="inner-box2 shared-inner-box-class"></div>
+      <div class="inner-box3 shared-inner-box-class"></div>
+    </div>
+
+    <div class="indexed-box2"></div>
+
+    <div style="min-height: 100vh;"></div>
+  </body>
+</html>
