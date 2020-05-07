@@ -120,3 +120,29 @@ header {
   background-color: pink;
   height: 5em;
 }
+
+/* Mobile styles */
+@media (min-width: 600px) and (max-width: 800px) {
+  .card {
+    width: 48%;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    display: block;
+  }
+  .menu {
+    display: block;
+  }
+  .nav {
+    width: auto;
+  }
+  .card {
+    width: 100%;
+  }
+  .main {
+    margin-top: 4.5em;
+    flex-direction: column;
+  }
+}
