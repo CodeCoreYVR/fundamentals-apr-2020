@@ -1,0 +1,129 @@
+.linepad {
+  padding: 10px;
+  text-align: center;
+  text-indent: 50px;
+}
+h1 {
+  font-size: 40px;
+}
+
+.head {
+  text-align: center;
+  text-shadow: 1px 1px 50px #e80000;
+}
+
+.contact {
+  margin-left: -5em;
+  position: absolute;
+}
+
+input,
+textarea {
+  margin-left: 10em;
+}
+
+h3 {
+  text-align: center;
+}
+
+h4 {
+  margin-top: -15px;
+  text-align: center;
+  font-weight: normal;
+}
+
+body {
+  background-color: #cbe8e1;
+}
+
+.radio {
+  margin-left: 40%;
+  position: relative;
+}
+
+.center {
+  border: 2px solid black;
+  background-color: #b7de12;
+}
+
+label.crust {
+  margin-left: 3%;
+}
+
+.size {
+  margin-left: -50px;
+}
+
+.crustsize {
+  margin-left: 5px;
+}
+
+table,
+th,
+td {
+  border: 1px solid #b7de12;
+  vertical-align: top;
+}
+
+thead {
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: underline;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+img {
+  margin-top: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 30%;
+  height: auto;
+}
+
+.submit {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-style: solid;
+  background: #75ffdd;
+  width: 250px;
+  height: 50px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  list-style: none;
+  background-color: #c0e8b9;
+}
+
+ul {
+  font-weight: bold;
+  font-size: 22px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  display: inline-block;
+  margin: 12px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 300px;
+}
