@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex Layout</title>
+    <style>
+      * {
+        color: white;
+        font-size: 1.2em;
+      }
+      div {
+        background-color: darkgreen;
+      }
+
+      header {
+        display: flex;
+        /* 
+            In a flex container, the main axis is the x-axis
+            and the cross axis is the y-axis
+            You can change the axis and the direction using
+            flex-direction on the flex container
+        */
+        /* flex-direction: row-reverse; right to left */
+        /* flex-direction: column-reverse; bottom to top */
+        /* flex-direction: row; default left to right */
+        /* flex-direction: column; top to bottom */
+        /* justify-content aligns the flex items along the main axis */
+        justify-content: space-between;
+        /* align-items:  center; algin along cross-axis */
+      }
+      .nav {
+        padding-right: 50px;
+      }
+
+      main {
+        background-color: darkgreen;
+        height: 40vh;
+      }
+
+      .box-container {
+        display: flex;
+        justify-content: space-between;
+        height: 15vh;
+      }
+      .large {
+        width: 50%;
+      }
+
+      .small {
+        width: 20%;
+      }
+      .container {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">Logo</div>
+        <div class="nav">Nav Menu</div>
+      </header>
+
+      <main>Main</main>
+
+      <footer class="box-container">
+        <div class="large">Large Box</div>
+        <div class="small">Small Box</div>
+        <div class="small">Small Box</div>
+      </footer>
+      <footer class="box-container">
+        <div class="large">Large Box</div>
+        <div class="small">Small Box</div>
+        <div class="small">Small Box</div>
+      </footer>
+    </div>
+  </body>
+</html>
