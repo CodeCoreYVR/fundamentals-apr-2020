@@ -14,7 +14,8 @@ console.log("I am a log that come after interval");
 
 // Change circle colour to value of the input using jQuery
 // whenever the form is submitted at: https://s3.amazonaws.com/codecore/jquery-lab/index.html
-
+/*
 $("#form-1").on("submit", function (event) {
   $(".circle").css("background-color", $("input[type=text]").val());
 });
+*/
