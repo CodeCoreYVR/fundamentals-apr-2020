@@ -108,7 +108,10 @@ function renderTodoTasks() {
         const taskDoneButton = document.createElement("button");
         taskDoneButton.setAttribute("id", "task-done-button");
         taskDoneButton.setAttribute("class", "btn btn-md btn-success");
-        taskDoneButton.setAttribute("onclick", "taskDone();");
+        taskDoneButton.setAttribute(
+          "onclick",
+          "taskDone(this.parentElement.parentElement, this.parentElement);"
+        );
         const faDone = document.createElement("i");
         faDone.setAttribute("class", "fa fa-check");
 
@@ -144,8 +147,34 @@ function renderTodoTasks() {
     });
 }
 
-function taskDone() {
-  console.log("Task Done");
+function taskDone(task, taskTool) {
+  // The purpose of this 'done task' is that  whenever
+  // we click this button on a task, the task will go over to
+  // Done tasks container from Todo tasks container and the
+  // second part is to move the task from todo_tasks to
+  // done_tasks in firebase
+  // console.log("task: ", task);
+  // console.log("taskTools: ", taskTool);
+
+  const doneTasksContainer = document.querySelector("#done-tasks");
+  task.removeChild(taskTool);
+  doneTasksContainer.append(task);
+  // We took care of moving task to done tasks container in browser
+  // now, let's implement this in firebase as well
+  const key = task.getAttribute("data-key");
+  const finishedTask = {
+    task: task.childNodes[0].childNodes[0].innerText,
+    date: task.childNodes[0].childNodes[1].innerText,
+    key: key,
+  };
+
+  // move task to done_tasks in firebase
+  const updateTasks = {};
+  updateTasks["/done_tasks/" + key] = finishedTask;
+  firebase.database().ref().update(updateTasks);
+  // delete task from todo_tasks in firebase
+  const taskToRemove = firebase.database().ref("todo_tasks/" + key);
+  taskToRemove.remove();
 }
 
 function taskEdit() {
