@@ -76,13 +76,17 @@ function renderTodoTasks() {
         taskTitle = task[2];
 
         // console.log(taskDate, taskKey, taskTitle);
-        const taskContainer = document.createElement("div");
-        taskContainer.setAttribute("class", "task-container");
+        const taskContainer = document.createElement("li");
+        taskContainer.setAttribute(
+          "class",
+          "list-group-item d-flex justify-content-between"
+        );
         taskContainer.setAttribute("data-key", taskKey);
 
         // Task Data
         const taskData = document.createElement("div");
         taskData.setAttribute("id", "task-data");
+        taskData.setAttribute("class", "task-datas");
 
         const title = document.createElement("p");
         title.setAttribute("id", "task-title");
@@ -99,6 +103,7 @@ function renderTodoTasks() {
         // Task Tools
         const taskTools = document.createElement("div");
         taskTools.setAttribute("id", "task-tools");
+        taskTools.setAttribute("class", "task-tools");
 
         const taskDoneButton = document.createElement("button");
         taskDoneButton.setAttribute("id", "task-done-button");
