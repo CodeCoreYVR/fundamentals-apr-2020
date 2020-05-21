@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="assets/css/master.css" />
   </head>
-  <body>
+  <body onload="renderTodoTasks();">
     <div id="app-container" class="container-fluid">
       <h1>Create Tasks</h1>
 
@@ -34,7 +34,7 @@
 
           <input type="date" name="date" class="form-control" />
           <button class="btn btn-danger" onclick="addTask();">
-            Add Task <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+            Add Task <i class="fa fa-arrow-circle-right"></i>
           </button>
         </div>
       </div>
@@ -42,89 +42,7 @@
       <!-- Todos list -->
       <h1>Todo Tasks</h1>
       <div class="container-fluid">
-        <div id="todo-tasks" class="task-container">
-          <div id="task-data" class="mt-4">
-            <p id="task-title" class="lead" contenteditable="false">
-              Task Title 1
-            </p>
-            <p id="task-date" class="lead" contenteditable="false">
-              Task Date 1
-            </p>
-          </div>
-          <div id="task-tools">
-            <button
-              id="task-done-button"
-              class="btn btn-md btn-success"
-              onclick="taskDone();"
-            >
-              <i class="fa fa-check" aria-hidden="true"></i>
-            </button>
-            <button
-              id="task-edit-button"
-              class="btn btn-md btn-secondary"
-              onclick="taskEdit();"
-            >
-              <i class="fa fa-pencil" aria-hidden="true"></i>
-            </button>
-            <button
-              id="task-delete-button"
-              class="btn btn-md btn-danger"
-              onclick="taskDelete();"
-            >
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            </button>
-          </div>
-
-          <div id="task-data" class="mt-4">
-            <p id="task-title" class="lead" contenteditable="false">
-              Task Title 2
-            </p>
-            <p id="task-date" class="lead" contenteditable="false">
-              Task Date 2
-            </p>
-          </div>
-          <div id="task-tools">
-            <button
-              id="task-done-button"
-              class="btn btn-md btn-success"
-              onclick="taskDone();"
-            >
-              <i class="fa fa-check" aria-hidden="true"></i>
-            </button>
-            <button id="task-edit-button" class="btn btn-md btn-secondary" onclick="taskEdit();">
-              <i class="fa fa-pencil" aria-hidden="true"></i>
-            </button>
-            <button id="task-delete-button" class="btn btn-md btn-danger" onclick="taskDelete();">
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            </button>
-          </div>
-
-          <div id="task-data" class="mt-4">
-            <p id="task-title" class="lead" contenteditable="false">
-              Task Title 3
-            </p>
-            <p id="task-date" class="lead" contenteditable="false">
-              Task Date 3
-            </p>
-          </div>
-          <div id="task-tools">
-            <button  id="task-done-button"
-              class="btn btn-md btn-success"
-              onclick="taskDone();"
-              id="task-done-button"
-              class="btn btn-md btn-success"
-              onclick="taskDone();"
-            >
-              <i class="fa fa-check" aria-hidden="true"></i>
-            </button>
-            <button id="task-edit-button" class="btn btn-md btn-secondary" onclick="taskEdit();">
-              <i class="fa fa-pencil" aria-hidden="true"></i>
-            </button>
-            <button id="task-delete-button" class="btn btn-md btn-danger" onclick="taskDelete();">
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            </button>
-          </div>
-        </div>
+        <div id="todo-tasks" class="task-container"></div>
         <hr />
         <!-- Done Tasks -->
         <h1 class="mt-4">Finished Tasks</h1>
