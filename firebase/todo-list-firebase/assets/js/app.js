@@ -154,6 +154,71 @@ function renderTodoTasks() {
     });
 }
 
+// Render all done task
+function renderDoneTasks() {
+  const doneTasksContainer = document.getElementById("done-tasks");
+  // clear out the todo tasks container before getting data
+  doneTasksContainer.innerHTML = "";
+
+  let tasksArray = [];
+  // Note the difference between 'once' and 'on' is that 'once'
+  // is called only one time but 'on' is called everytime the
+  // value changes
+  firebase
+    .database()
+    .ref("done_tasks")
+    .once("value", function (snapshot) {
+      // console.log(snapshot);
+      // for every snapshot we just wanna get the child data
+      // and then we just wanna get the key and the data value
+      snapshot.forEach(function (childSnapshot) {
+        const childKey = childSnapshot.key;
+        const childData = childSnapshot.val();
+        // Below 👇 we are converting object to array
+        // which is easier to handle
+        tasksArray.push(Object.values(childData));
+      });
+
+      tasksArray.map(function (task) {
+        // console.log(task);
+        taskDate = task[0];
+        taskKey = task[1];
+        taskTitle = task[2];
+
+        // console.log(taskDate, taskKey, taskTitle);
+        const taskContainer = document.createElement("li");
+        taskContainer.setAttribute(
+          "class",
+          "list-group-item d-flex justify-content-between"
+        );
+        taskContainer.setAttribute("data-key", taskKey);
+
+        // Task Data
+        const taskData = document.createElement("div");
+        taskData.setAttribute("id", "task-data");
+        taskData.setAttribute("class", "task-datas");
+
+        const title = document.createElement("p");
+        title.setAttribute("id", "task-title");
+        title.setAttribute("class", "lead");
+        title.setAttribute("contenteditable", "false");
+        title.innerText = taskTitle;
+
+        const date = document.createElement("p");
+        date.setAttribute("id", "task-date");
+        date.setAttribute("class", "lead");
+        date.setAttribute("contenteditable", "false");
+        date.innerText = taskDate;
+
+        doneTasksContainer.append(taskContainer);
+        // append task data (title, date)
+        taskContainer.append(taskData);
+        taskData.append(title);
+        taskData.append(date);
+      });
+    });
+}
+
 // Finish a Task
 function taskDone(task, taskTool) {
   // The purpose of this 'done task' is that  whenever

@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="assets/css/master.css" />
   </head>
-  <body onload="renderTodoTasks();">
+  <body onload="renderTodoTasks(), renderDoneTasks();">
     <div id="app-container" class="container-fluid">
       <h1>Create Tasks</h1>
 
@@ -46,7 +46,9 @@
         <hr />
         <!-- Done Tasks -->
         <h1 class="mt-4">Done Tasks</h1>
-        <div class="container-fluid" id="done-tasks"></div>
+        <div class="container-fluid">
+          <ul id="done-tasks"></ul>
+        </div>
       </div>
     </div>
     <!-- Scripts -->
