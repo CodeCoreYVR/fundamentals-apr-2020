@@ -45,6 +45,7 @@ function addTask() {
   }
 }
 
+// Render all todo tasks
 function renderTodoTasks() {
   const todoTasksContainer = document.getElementById("todo-tasks");
   // clear out the todo tasks container before getting data
@@ -118,7 +119,10 @@ function renderTodoTasks() {
         const taskEditButton = document.createElement("button");
         taskEditButton.setAttribute("id", "task-edit-button");
         taskEditButton.setAttribute("class", "btn btn-md btn-secondary");
-        taskEditButton.setAttribute("onclick", "taskEdit();");
+        taskEditButton.setAttribute(
+          "onclick",
+          "taskEdit(this.parentElement.parentElement, this);"
+        );
         const faEdit = document.createElement("i");
         faEdit.setAttribute("class", "fa fa-pencil");
 
@@ -147,6 +151,7 @@ function renderTodoTasks() {
     });
 }
 
+// Finish a Task
 function taskDone(task, taskTool) {
   // The purpose of this 'done task' is that  whenever
   // we click this button on a task, the task will go over to
@@ -177,10 +182,48 @@ function taskDone(task, taskTool) {
   taskToRemove.remove();
 }
 
-function taskEdit() {
-  console.log("Task Edit");
+// Edit a Task
+function taskEdit(task, editButton) {
+  editButton.style.backgroundColor = "orange";
+  editButton.style.color = "#000"; // black
+  editButton.setAttribute(
+    "onclick",
+    "submitUpdates(this.parentElement.parentElement, this)"
+  );
+
+  const title = task.childNodes[0].childNodes[0];
+  title.setAttribute("contenteditable", true);
+  const date = task.childNodes[0].childNodes[1];
+  date.setAttribute("contenteditable", true);
 }
 
+function submitUpdates(task, editButton) {
+  editButton.style.backgroundColor = "#6c757d"; // grey
+  editButton.style.color = "#fff"; // white
+  editButton.setAttribute(
+    "onclick",
+    "taskEdit(this.parentElement.parentElement, this)"
+  );
+
+  const title = task.childNodes[0].childNodes[0];
+  title.setAttribute("contenteditable", false);
+  const date = task.childNodes[0].childNodes[1];
+  date.setAttribute("contenteditable", false);
+
+  // Update in firebase as well
+  const key = task.getAttribute("data-key");
+  const taskObject = {
+    task: task.childNodes[0].childNodes[0].innerText,
+    date: task.childNodes[0].childNodes[1].innerText,
+    key: key,
+  };
+
+  const updateTasks = {};
+  updateTasks["/todo_tasks/" + key] = taskObject;
+  firebase.database().ref().update(updateTasks);
+}
+
+// Delete a Task
 function taskDelete() {
   console.log("Task Delete");
 }
