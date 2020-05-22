@@ -129,7 +129,10 @@ function renderTodoTasks() {
         const taskDeleteButton = document.createElement("button");
         taskDeleteButton.setAttribute("id", "task-delete-button");
         taskDeleteButton.setAttribute("class", "btn btn-md btn-danger");
-        taskDeleteButton.setAttribute("onclick", "taskDelete();");
+        taskDeleteButton.setAttribute(
+          "onclick",
+          "taskDelete(this.parentElement.parentElement);"
+        );
         const faDelete = document.createElement("i");
         faDelete.setAttribute("class", "fa fa-trash");
 
@@ -224,6 +227,10 @@ function submitUpdates(task, editButton) {
 }
 
 // Delete a Task
-function taskDelete() {
-  console.log("Task Delete");
+function taskDelete(task) {
+  const key = task.getAttribute("data-key");
+  const taskToRemove = firebase.database().ref("todo_tasks/" + key);
+  taskToRemove.remove();
+  // Also remove it from HTML
+  task.remove();
 }
